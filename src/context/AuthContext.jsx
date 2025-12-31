@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
         if (token) {
           const userData = await getProfile();
           console.log("userData?.data", userData?.data)
-          setUser(userData?.data._doc);
+          setUser(userData?.data);
         }
       } catch (err) {
         console.error('Auth check failed:', err);
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
       if (userData?.data?.access_token) {
         localStorage.setItem('token', userData?.data?.access_token);
         const profileData = await getProfile();
-        setUser(profileData?.data?._doc || profileData?.data);
+        setUser(profileData?.data);
         return userData;
       }
       return userData;

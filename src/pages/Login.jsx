@@ -19,13 +19,13 @@ const Login = () => {
     
     if (token) {
       // Redirect based on user role if token exists
-      // if (userRole === 'ADMIN') {
-      //   navigate('/dashboard');
-      // } else if (userRole === 'MANAGER') {
-      //   navigate('/manager/dashboard');
-      // } else if (userRole === 'USER') {
-      //   navigate('/user/dashboard');
-      // }
+      if (userRole === 'ADMIN') {
+        navigate('/dashboard');
+      } else if (userRole === 'MANAGER') {
+        navigate('/manager/dashboard');
+      } else if (userRole === 'USER') {
+        navigate('/user/dashboard');
+      }
     }
   }, [user, navigate]);
 
